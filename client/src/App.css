@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --mainFont: 'Inter', "Montserrat", Arial, Helvetica, sans-serif;
+  --mainBlue: #1F75FE;
+  --darkBlue: #1048a2;
+  --paleBlue: #F5F5FF;
+  --darkGrey: #333333;
+  --placeholder: #909090;
+  --mirage: #151D24;
+  --mainOrange: #E08A01;
+  --navyBlue: #2B3640;
+  --headerHeight: 75px;
+  --pageMaxWidth: 1250px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--mainFont);
+}
+
+body {
+  font-size: 12px;
+  padding-top: var(--headerHeight);
+}
+li {
+  list-style: none;
+}
+button {
+  background: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+button:focus {
+  border: 1px solid var(--mainBlue);
+  box-shadow: 0 0 5px rgba(31, 117, 254, 0.7);
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+a:focus {
+  border: 1px solid var(--mainBlue);
+  box-shadow: 0 0 5px rgba(31, 117, 254, 0.7);
+}
+
+.title {
+  color: var(--darkGrey);
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+.title.small {
+  font-size: 1.4rem;
+}
+
+.sub-title {
+  color: var(--mainBlue);
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+section > .wrapper {
+  max-width: var(--pageMaxWidth);
+  width: 90%;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+@media only screen and (max-width: 1200px) {
+  .title {
+    font-size: 2rem;
+  }
+  .title.small {
+    font-size: 1.2rem;
+  }
+  .sub-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  .sub-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  section .wrapper {
+    padding: 3rem 0;
+  }
+}

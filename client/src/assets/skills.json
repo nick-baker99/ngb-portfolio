@@ -1,0 +1,50 @@
+[
+  {
+    "title": "HTML",
+    "image": "html-5.png"
+  },
+  {
+    "title": "CSS",
+    "image": "css-3.png"
+  },
+  {
+    "title": "JavaScript",
+    "image": "js.png"
+  },
+  {
+    "title": "PHP",
+    "image": "php.png"
+  },
+  {
+    "title": "SQL",
+    "image": "database.png"
+  },
+  {
+    "title": "React",
+    "image": "react.png"
+  },
+  {
+    "title": "Node.js",
+    "image": "nodejs.png"
+  },
+  {
+    "title": "Express.js",
+    "image": "express.png"
+  },
+  {
+    "title": "MongoDB",
+    "image": "MongoDB_Logomark_ForestGreen.png"
+  },
+  {
+    "title": "Figma",
+    "image": "Figma-Icon.png"
+  },
+  {
+    "title": "Git",
+    "image": "Git-Icon.png"
+  },
+  {
+    "title": "Firebase",
+    "image": "firebase-logo.png"
+  }
+]
