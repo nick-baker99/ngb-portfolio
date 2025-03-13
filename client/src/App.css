@@ -10,6 +10,8 @@
   --mirage: #151D24;
   --mainOrange: #E08A01;
   --navyBlue: #2B3640;
+  --errorRed: red;
+  --successGreen: #099f09;
   --headerHeight: 75px;
   --pageMaxWidth: 1250px;
 }
@@ -47,6 +49,13 @@ a {
 a:focus {
   border: 1px solid var(--mainBlue);
   box-shadow: 0 0 5px rgba(31, 117, 254, 0.7);
+}
+
+.success {
+  color: var(--successGreen);
+}
+.error {
+  color: var(--errorRed);
 }
 
 .title {

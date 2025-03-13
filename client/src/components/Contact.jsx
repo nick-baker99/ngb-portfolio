@@ -10,11 +10,12 @@ import { useRef } from "react";
 
 const Contact = () => {
   const captchaRef = useRef();
+  const [formStatus, setFormStatus] = useState(null);
 
   const { 
     register, 
     handleSubmit, 
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
     reset,
     setValue,
     trigger
@@ -26,32 +27,46 @@ const Contact = () => {
   }, [register]);
 
   // initialize emailjs
-  useEffect(() => emailjs.init(import.meta.env.REACT_APP_EMAILJS_KEY), []);
+  useEffect(() => emailjs.init(import.meta.env.VITE_EMAILJS_KEY), []);
 
   const onSubmit = async (data) => {
-    if (!data.recaptchaToken) {
-      alert("Please complete the reCAPTCHA.");
-      return;
-    }
+    
     try {
-      await emailjs.send(
-        "service_mk537os",
-        "template_ctw418b",
-        data,
-      );
+      // send reCAPTCHA token to backend to be verified
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ "recaptchaToken": data.recaptchaToken })
+      });
 
-      alert("Message sent");
-      reset();
+      if (response.ok) {
+        // attempt to send email via EmailJS (move this to the backend)
+        try {
+          await emailjs.send(
+            "service_mk537os",
+            "template_ctw418b",
+            data,
+          );
+  
+          setFormStatus("success");
+          reset();
+          captchaRef.current.reset();
+          // update form success message
+        } catch (error) {
+          console.error("Emailjs error: ", error);
+          // set form failure message
+          setFormStatus("error");
+        }
+      } else {
+        alert("Failed to verify token");
+        // set form failure message
+        setFormStatus("error");
+      }
     } catch (error) {
-      console.error("Emailjs error: ", error);
-      alert("Failed");
+      console.error("Error sending message:", error);
+      // set form failure message
+      setFormStatus("error");
     }
-    /*console.log("Form submitted:", data);
-
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    alert("Message sent successfully!");
-    reset();*/
   };
 
   return (
@@ -115,7 +130,8 @@ const Contact = () => {
             <button type="submit" title="send message" disabled={isSubmitting}>
               {isSubmitting ? "Sending..." : "Submit"}
             </button>
-            {isSubmitSuccessful && <p className="message-sent">Message sent successfully</p>}
+            {formStatus === "success" && <p className="form-status success">Message sent successfully</p>}
+            {formStatus === "error" && <p className="form-status error">Something went wrong. Please try again</p>}
           </div>
         </form>
       </div>
@@ -172,17 +188,16 @@ const ContactStyles = styled.section`
     background-color: var(--darkBlue);
   }
 
-  .message-sent {
+  .form-status {
     text-align: right;
     margin-top: 1rem;
-    color: #099f09;
     font-size: 1rem;
     font-weight: bold;
   }
 
   .error-msg {
     margin: 0.5rem 0;
-    color: red;
+    color: var(--errorRed);
     font-size: 0.8rem;
   }
 `;
