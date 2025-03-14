@@ -2,7 +2,6 @@ import { useState } from "react";
 import styled from "styled-components"
 import FormInput from "./FormInput";
 import { useForm } from "react-hook-form";
-import emailjs from "@emailjs/browser";
 import { useEffect } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
@@ -10,7 +9,7 @@ import { useRef } from "react";
 
 const Contact = () => {
   const captchaRef = useRef();
-  const [formStatus, setFormStatus] = useState(null);
+  const [formStatus, setFormStatus] = useState("error");
 
   const { 
     register, 
@@ -30,40 +29,24 @@ const Contact = () => {
   useEffect(() => emailjs.init(import.meta.env.VITE_EMAILJS_KEY), []);
 
   const onSubmit = async (data) => {
-    
     try {
       // send reCAPTCHA token to backend to be verified
       const response = await fetch("/api/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ "recaptchaToken": data.recaptchaToken })
+        body: JSON.stringify(data)
       });
 
       if (response.ok) {
-        // attempt to send email via EmailJS (move this to the backend)
-        try {
-          await emailjs.send(
-            "service_mk537os",
-            "template_ctw418b",
-            data,
-          );
-  
-          setFormStatus("success");
-          reset();
-          captchaRef.current.reset();
-          // update form success message
-        } catch (error) {
-          console.error("Emailjs error: ", error);
-          // set form failure message
-          setFormStatus("error");
-        }
-      } else {
-        alert("Failed to verify token");
-        // set form failure message
-        setFormStatus("error");
+        // message has been sent successfully
+        setFormStatus("success");
+        // reset form values
+        reset();
+        // reset recaptcha
+        captchaRef.current.reset();
       }
     } catch (error) {
-      console.error("Error sending message:", error);
+      console.log(response);
       // set form failure message
       setFormStatus("error");
     }
@@ -127,10 +110,10 @@ const Contact = () => {
           />
           {errors.recaptchaToken && <p className="error-msg">Please complete the reCAPTCHA</p>}
           <div className="submit-btn">
-            <button type="submit" title="send message" disabled={isSubmitting}>
+            <button type="submit" title="send message" disabled={isSubmitting} onClick={() => setFormStatus(null)}>
               {isSubmitting ? "Sending..." : "Submit"}
             </button>
-            {formStatus === "success" && <p className="form-status success">Message sent successfully</p>}
+            {formStatus === "success" && <p className="form-status success">Your message has been sent!</p>}
             {formStatus === "error" && <p className="form-status error">Something went wrong. Please try again</p>}
           </div>
         </form>
