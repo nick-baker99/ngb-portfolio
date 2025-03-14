@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const ContactLink = ({ link, text, icon, target = '_self' }) => {
+const ContactLink = ({ link, text = '', icon, target = '_self' }) => {
   return (
     <ContactLinkStyles href={link} target={target}>
       {icon}

@@ -9,7 +9,7 @@ import { useRef } from "react";
 
 const Contact = () => {
   const captchaRef = useRef();
-  const [formStatus, setFormStatus] = useState("error");
+  const [formStatus, setFormStatus] = useState(null);
 
   const { 
     register, 
@@ -24,9 +24,6 @@ const Contact = () => {
   useEffect(() => {
     register("recaptchaToken", { required: "Please complete the reCAPTCHA" });
   }, [register]);
-
-  // initialize emailjs
-  useEffect(() => emailjs.init(import.meta.env.VITE_EMAILJS_KEY), []);
 
   const onSubmit = async (data) => {
     try {
