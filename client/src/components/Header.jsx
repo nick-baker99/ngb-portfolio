@@ -10,17 +10,26 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(
     window.matchMedia('(max-width: 768px)').matches
   );
+  const [hasShadow, setHasShadow] = useState(false);
 
   useEffect(() => {
     // add window resize event handler to update mobile size state
-    window.addEventListener('resize', () => {
-      setIsMobile(window.matchMedia('(max-width: 768px)').matches);
-    });
+    const handleResize = () => setIsMobile(window.matchMedia('(max-width: 768px)').matches);
+    window.addEventListener('resize', handleResize);
+
+    const handleScroll = () => setHasShadow(window.scrollY > 10);
+    window.addEventListener('scroll', handleScroll);
+
+    // remove event handlers on unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    }
+    
   }, []);
 
-
   return (
-    <HeaderStyles>
+    <HeaderStyles $hasShadow={hasShadow}>
       <div className="inner">
         <div className="ngb-logo">
           <img src="images/ngb-logo.png" alt="NGB logo" />
@@ -71,9 +80,10 @@ const HeaderStyles = styled.header`
   left: 0;
   width: 100%;
   background: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   height: var(--headerHeight);
   z-index: 1000;
+  box-shadow: ${({ $hasShadow }) => ($hasShadow ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none')};
+  transition: box-shadow 0.3s ease-in-out;
   .inner {
     max-width: var(--pageMaxWidth);
     width: 90%;

@@ -32,6 +32,12 @@ const ProjectsSpotlight = () => {
             image="qr.jpg"
             link="/projects/qr"
           />
+          <ProjectBlock 
+            title="NGB Portfolio"
+            description="Portfolio website for Nick Baker - Full stack developer."
+            image="portfolio.jpg"
+            link="/projects/portfolio"
+          />
         </div>
       </div>
     </SpotlightStyles>

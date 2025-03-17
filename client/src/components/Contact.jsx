@@ -150,6 +150,7 @@ const ContactStyles = styled.section`
     border-radius: 5px;
     width: 175px;
     margin-left: auto;
+    margin-top: 1rem;
     display: block;
     transition: background 0.3s ease;
 
@@ -158,14 +159,15 @@ const ContactStyles = styled.section`
       cursor: not-allowed;
     }
 
+    &:hover {
+      background-color: var(--darkBlue);
+    }
+
     @media (max-width: 768px) {
       font-size: 1rem;
       padding: 14px 18px;
       width: 150px;
     }
-  }
-  .submit-btn button:hover {
-    background-color: var(--darkBlue);
   }
 
   .form-status {
