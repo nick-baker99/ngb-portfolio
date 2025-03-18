@@ -1,9 +1,11 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components'
-import { IoMenu, IoClose } from "react-icons/io5";
+import { IoMenu, IoClose, IoMoon, IoSunny } from "react-icons/io5";
+import { ThemeContext } from '../context/ThemeContext';
 
 const Header = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   // toggle for mobile nav menu
   const [navOpen, setNavOpen] = useState(false);
   // tracks if current window size is mobile
@@ -25,7 +27,6 @@ const Header = () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
     }
-    
   }, []);
 
   return (
@@ -45,6 +46,10 @@ const Header = () => {
             </ul>
           </nav>
           <button className="contact-btn">Get in touch</button>
+          {/* toggle theme button */}
+          <ToggleButton $theme={theme} onClick={toggleTheme}>
+            {theme === "light" ? <IoMoon /> : <IoSunny />}
+          </ToggleButton>
           { // mobile nav menu close button
           isMobile && navOpen && (
             <button 
@@ -203,6 +208,23 @@ const HeaderStyles = styled.header`
       font-size: 2rem;
       cursor: pointer;
     }
+  }
+`;
+
+const ToggleButton = styled.button`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+  background: #e9e9e9;
+  border-radius: 50%;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    color: ${({ $theme }) => ($theme === "light" ? "#151D24" : "#fdc401")};
   }
 `;
 

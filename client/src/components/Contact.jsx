@@ -34,16 +34,18 @@ const Contact = () => {
         body: JSON.stringify(data)
       });
 
-      if (response.ok) {
-        // message has been sent successfully
-        setFormStatus("success");
-        // reset form values
-        reset();
-        // reset recaptcha
-        captchaRef.current.reset();
+      if (!response.ok) {
+        setFormStatus("error");
+        return;
       }
+
+      // message has been sent successfully
+      setFormStatus("success");
+      // reset form values
+      reset();
+      // reset recaptcha
+      captchaRef.current.reset();
     } catch (error) {
-      console.log(response);
       // set form failure message
       setFormStatus("error");
     }
