@@ -20,12 +20,11 @@ const ProjectBlock = ({ title, description, image, link }) => {
 }
 
 const BlockStyles = styled.div`
-  background-color: var(--paleBlue);
+  background-color: var(--secondaryBg);
   border-radius: 5px;
   overflow: hidden;
   text-align: left;
-  /* box-shadow: 0 0 4px rgba(0,0,0,0.3); */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--boxShadow);
   img {
     width: 100%;
     border-radius: 5px;
@@ -41,7 +40,7 @@ const BlockStyles = styled.div`
   }
   .project-title {
     margin-bottom: 1rem;
-    color: #222;
+    color: var(--titleColour);
     font-size: 1rem;
   }
   .description {
@@ -51,7 +50,7 @@ const BlockStyles = styled.div`
   }
   .project-link a {
     display: inline-block;
-    background: var(--mainBlue);
+    background: var(--buttonBg);
     color: #fff;
     border-radius: 5px;
     text-decoration: none;
@@ -60,7 +59,7 @@ const BlockStyles = styled.div`
     transition: transform 0.3s ease-in-out;
   }
   .project-link a:hover {
-    background: #0162fe;
+    background: var(--buttonHoverBg);
     transform: scale(1.05);
   }
 `;

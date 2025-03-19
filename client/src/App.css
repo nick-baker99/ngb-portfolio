@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-:root {
+/*:root {
   --mainFont: 'Inter', "Montserrat", Arial, Helvetica, sans-serif;
   --mainBlue: #1F75FE;
   --darkBlue: #1048a2;
@@ -14,6 +14,43 @@
   --successGreen: #099f09;
   --headerHeight: 75px;
   --pageMaxWidth: 1250px;
+} */
+
+:root {
+  --mainFont: 'Inter', "Montserrat", Arial, Helvetica, sans-serif;
+  --errorRed: red;
+  --successGreen: #099f09;
+  --headerHeight: 75px;
+  --pageMaxWidth: 1250px;
+  --mainBlue: #1F75FE;
+  --mirage: #151D24;
+  /* light theme variables */
+  --mainBg: #FFF;
+  --secondaryBg: #F5F5FF;
+  --txtColour: #000;
+  --subTxtColour: #1F75FE;
+  --titleColour: #333333;
+  --placeholder: #909090;
+  --buttonBg: #1F75FE;
+  --buttonHoverBg: #1048a2;
+  --buttonColour: #FFF;
+  --headerShadow: 0 2px 10px rgba(0,0,0,0.1);
+  --boxShadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* dark theme variable */
+:root.dark {
+  --mainBg: #151D24;
+  --secondaryBg: #2B3640;
+  --txtColour: #FFF;
+  --subTxtColour: #E08A01;
+  --titleColour: #FFF;
+  --placeholder: rgba(255,255,255);
+  --buttonBg: #E08A01;
+  --buttonHoverBg: #b26e01;
+  --buttonColour: #FFF;
+  --headerShadow: 0 4px 8px rgba(255, 255, 255, 0.05), 
+                  0 2px 4px rgba(255, 255, 255, 0.1);
+  --boxShadow: 0 4px 10px rgba(173, 216, 230, 0.1);
 }
 
 *, *::before, *::after {
@@ -26,7 +63,10 @@
 body {
   font-size: 12px;
   padding-top: var(--headerHeight);
+  background: var(--mainBg);
+  color: var(--txtColour);
 }
+
 li {
   list-style: none;
 }
@@ -38,8 +78,14 @@ button {
   background: transparent;
 }
 button:focus {
-  border: 1px solid var(--mainBlue);
+  border: 1px solid var(--buttonBg);
   box-shadow: 0 0 5px rgba(31, 117, 254, 0.7);
+}
+
+::placeholder,
+::-ms-input-placeholder,
+:-ms-input-placeholder {
+  color: var(--placeholder);
 }
 
 a {
@@ -47,7 +93,7 @@ a {
   outline: none;
 }
 a:focus {
-  border: 1px solid var(--mainBlue);
+  border: 1px solid var(--subTxtColour);
   box-shadow: 0 0 5px rgba(31, 117, 254, 0.7);
 }
 
@@ -59,7 +105,7 @@ a:focus {
 }
 
 .title {
-  color: var(--darkGrey);
+  color: var(--titleColour);
   font-size: 2.4rem;
   margin-bottom: 1rem;
 }
@@ -68,7 +114,7 @@ a:focus {
 }
 
 .sub-title {
-  color: var(--mainBlue);
+  color: var(--subTxtColour);
   font-weight: bold;
   font-size: 2rem;
 }

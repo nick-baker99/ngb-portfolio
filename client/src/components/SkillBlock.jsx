@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { ThemeContext } from "../context/ThemeContext";
 
 const SkillBlock = ({ title, image }) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <BlockStyles className="skill-block" tabIndex="0">
       <img 
@@ -19,8 +23,11 @@ const BlockStyles = styled.div`
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+  background-color: var(--mainBg);
+  box-shadow: ${({ $theme }) => $theme === "light" 
+    ? "0 0 3px rgba(0,0,0,0.3)" 
+    : "0 4px 10px rgba(173, 216, 230, 0.1)"
+  };
   padding: 0.75rem 1rem;
   font-weight: 500;
   font-size: 0.8rem;

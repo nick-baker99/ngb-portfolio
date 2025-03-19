@@ -48,7 +48,7 @@ const About = () => {
 }
 
 const AboutStyle = styled.section`
-  background-color: var(--paleBlue);
+  background-color: var(--secondaryBg);
   padding: 3rem 2rem;
 
   @media (max-width: 992px) {
@@ -106,28 +106,5 @@ const AboutStyle = styled.section`
 
   .skills .sub-title { visibility: hidden; }
 `;
-
-/*const AboutStyle = styled.section`
-  background-color: var(--paleBlue);
-  .wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    padding: 5rem 0;
-  }
-  .profile {
-    flex: 1;
-  }
-  .profile-text {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-  .skill-blocks {
-    display: grid;
-    grid-template-columns: repeat(4, 90px);
-    justify-content: center;
-    gap: 1.5rem;
-  }
-`; */
 
 export default About

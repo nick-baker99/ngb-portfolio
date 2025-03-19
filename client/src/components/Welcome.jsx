@@ -46,7 +46,7 @@ const WelcomeStyles = styled.section`
     margin-bottom: 1.5rem;
   }
   .cv-btn {
-    background: var(--mainBlue);
+    background: var(--buttonBg);
     color: #fff;
     font-size: 1.2rem;
     font-weight: 600;
@@ -56,7 +56,7 @@ const WelcomeStyles = styled.section`
     transition: background 0.3s ease;
 
     &:hover {
-      background: var(--darkBlue);
+      background: var(--buttonHoverBg);
     }
   }
   @media only screen and (max-width: 1200px) {

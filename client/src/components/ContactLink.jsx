@@ -13,7 +13,7 @@ const ContactLinkStyles = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--darkGrey);
+  color: var(--titleColour);
   font-weight: 500;
   font-size: 1rem;
   text-decoration: none;
@@ -21,7 +21,7 @@ const ContactLinkStyles = styled.a`
   margin-bottom: 0.75rem;
   width: fit-content;
   &:hover {
-    color: var(--mainBlue);
+    color: var(--subTxtColour);
   }
   svg {
     width: 30px;

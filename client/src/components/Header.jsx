@@ -1,7 +1,8 @@
 import { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components'
-import { IoMenu, IoClose, IoMoon, IoSunny } from "react-icons/io5";
+import { IoMenu, IoClose } from "react-icons/io5";
+import { AiFillMoon, AiFillSun } from "react-icons/ai";
 import { ThemeContext } from '../context/ThemeContext';
 
 const Header = () => {
@@ -13,6 +14,8 @@ const Header = () => {
     window.matchMedia('(max-width: 768px)').matches
   );
   const [hasShadow, setHasShadow] = useState(false);
+
+  console.log(window.matchMedia("(prefers-color-scheme: dark)").matches);
 
   useEffect(() => {
     // add window resize event handler to update mobile size state
@@ -33,7 +36,7 @@ const Header = () => {
     <HeaderStyles $hasShadow={hasShadow}>
       <div className="inner">
         <div className="ngb-logo">
-          <img src="images/ngb-logo.png" alt="NGB logo" />
+          <img src={`images/${theme === "light" ? "ngb-logo.png" : "ngb_logo_alt.png"}`} alt="NGB logo" />
         </div>
         {isMobile && navOpen && <div className="nav-backdrop" onClick={() => setNavOpen(false)} />}
         <div className={`nav-wrapper${isMobile && navOpen ? ' open' : ''}`}>
@@ -48,7 +51,7 @@ const Header = () => {
           <button className="contact-btn">Get in touch</button>
           {/* toggle theme button */}
           <ToggleButton $theme={theme} onClick={toggleTheme}>
-            {theme === "light" ? <IoMoon /> : <IoSunny />}
+            {theme === "light" ? <AiFillMoon /> : <AiFillSun />}
           </ToggleButton>
           { // mobile nav menu close button
           isMobile && navOpen && (
@@ -84,10 +87,10 @@ const HeaderStyles = styled.header`
   top: 0;
   left: 0;
   width: 100%;
-  background: #fff;
+  background: var(--mainBg);
   height: var(--headerHeight);
   z-index: 1000;
-  box-shadow: ${({ $hasShadow }) => ($hasShadow ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none')};
+  box-shadow: ${({ $hasShadow }) => ($hasShadow ? 'var(--headerShadow)' : 'none')};
   transition: box-shadow 0.3s ease-in-out;
   .inner {
     max-width: var(--pageMaxWidth);
@@ -116,7 +119,7 @@ const HeaderStyles = styled.header`
   .nav-wrapper {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
   }
   nav ul {
     display: flex;
@@ -129,25 +132,26 @@ const HeaderStyles = styled.header`
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #222;
+    color: var(--txtColour);
     transition: color 0.3s ease;
   }
   nav ul li a:hover {
-    color: var(--mainBlue); /* Subtle color change */
+    color: var(--subTxtColour); /* Subtle color change */
   }
 
   .contact-btn {
     padding: 10px 20px;
     font-size: 1.1rem;
     font-weight: 600;
-    background: var(--mainBlue);
+    background: var(--buttonBg);
     color: white;
     border: none;
     border-radius: 6px;
     transition: background 0.3s ease;
+    margin-left: 0.5rem;
   }
   .contact-btn:hover {
-    background: var(--darkBlue);
+    background: var(--buttonHoverBg);
   }
   /* Hide the Mobile Menu Button */
   .menu-btn {
@@ -184,18 +188,19 @@ const HeaderStyles = styled.header`
     nav ul li a {
       font-size: 1.5rem;
       font-weight: bold;
-      color: var(--mainBlue);
+      color: var(--subTxtColour);
       transition: color 0.3s ease;
     }
     nav ul li a:hover {
-      color: var(--darkBlue);
+      color: var(--buttonHoverBg);
     }
     .contact-btn {
       font-size: 1.2rem;
       padding: 12px 20px;
       border-radius: 8px;
-      background-color: var(--mainBlue);
+      background-color: var(--subTxtColour);
       color: white;
+      margin: 0;
     }
     .menu-btn {
       display: inline-block;
@@ -204,7 +209,7 @@ const HeaderStyles = styled.header`
       right: 20px;
       background: transparent;
       border: none;
-      color: var(--mainBlue);
+      color: var(--subTxtColour);
       font-size: 2rem;
       cursor: pointer;
     }
@@ -218,13 +223,18 @@ const ToggleButton = styled.button`
   justify-content: center;
   align-items: center;
   padding: 7px;
-  background: #e9e9e9;
+  background: ${({ $theme }) => ($theme === "light" ? "#e9e9e9" : "#3d4d5c")};
   border-radius: 50%;
 
   svg {
     width: 100%;
     height: 100%;
-    color: ${({ $theme }) => ($theme === "light" ? "#151D24" : "#fdc401")};
+    color: ${({ $theme }) => ($theme === "light" ? "#2B3640" : "#FFF")};
+  }
+
+  @media (max-width: 768px) {
+    width: 50px;
+    heighT: 50px;
   }
 `;
 

@@ -33,7 +33,7 @@ const InputStyles = styled.div`
 
   label {
     display: block;
-    color: var(--darkGrey);
+    color: var(--titleColour);
     font-weight: bold;
     font-size: 1rem;
     margin-bottom: 0.5rem;
@@ -41,7 +41,7 @@ const InputStyles = styled.div`
 
   input,
   textarea {
-    background-color: var(--paleBlue);
+    background-color: var(--secondaryBg);
     padding: 1rem;
     padding-left: 1.25rem;
     border: 1px solid rgba(0,0,0,0.2);
@@ -58,15 +58,7 @@ const InputStyles = styled.div`
     @media (max-width: 768px) {
       font-size: 0.9rem;
     }
-  }
-  input::placeholder,
-  textarea::placeholder {
-    color: rgba(0,0,0,0.4);
-  }
-  input::-ms-input-placeholder,
-  textarea::-ms-input-placeholder {
-    color: rgba(0,0,0,0.4);
-  }
+  } 
 
   input {
     height: 50px;

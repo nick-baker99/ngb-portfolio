@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components"
 import FormInput from "./FormInput";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 
 const Contact = () => {
+  const { theme } = useContext(ThemeContext);
+
   const captchaRef = useRef();
   const [formStatus, setFormStatus] = useState(null);
 
@@ -106,6 +109,7 @@ const Contact = () => {
               setValue("recaptchaToken", token, { shouldValidate: true });
               trigger("recaptchaToken");
             }}
+            theme={theme}
           />
           {errors.recaptchaToken && <p className="error-msg">Please complete the reCAPTCHA</p>}
           <div className="submit-btn">
@@ -122,16 +126,16 @@ const Contact = () => {
 }
 
 const ContactStyles = styled.section`
-  background-color: var(--paleBlue);
+  background-color: var(--secondaryBg);
   padding: 4rem 0;
   text-align: center;
 
   .wrapper {
-    background-color: #fff;
+    background-color: var(--mainBg);
     max-width: 750px;
     margin: 2rem auto;
     padding: 2.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--boxShadow);
     border-radius: 8px;
     
     @media (max-width: 768px) {
@@ -144,7 +148,7 @@ const ContactStyles = styled.section`
     text-align: left;
   }
   .submit-btn button {
-    background-color: var(--mainBlue);
+    background-color: var(--buttonBg);
     color: #fff;
     font-weight: bold;
     font-size: 1.1rem;
@@ -162,7 +166,7 @@ const ContactStyles = styled.section`
     }
 
     &:hover {
-      background-color: var(--darkBlue);
+      background-color: var(--buttonHoverBg);
     }
 
     @media (max-width: 768px) {
