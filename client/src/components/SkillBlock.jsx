@@ -6,7 +6,7 @@ const SkillBlock = ({ title, image }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <BlockStyles className="skill-block" tabIndex="0">
+    <BlockStyles $theme={theme} className="skill-block" tabIndex="0">
       <img 
         loading="lazy" 
         src={`images/skills/${image}`} 

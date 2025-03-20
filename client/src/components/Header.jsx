@@ -33,7 +33,7 @@ const Header = () => {
   }, []);
 
   return (
-    <HeaderStyles $hasShadow={hasShadow}>
+    <HeaderStyles $hasShadow={hasShadow} $theme={theme}>
       <div className="inner">
         <div className="ngb-logo">
           <img src={`images/${theme === "light" ? "ngb-logo.png" : "ngb_logo_alt.png"}`} alt="NGB logo" />
@@ -50,7 +50,7 @@ const Header = () => {
           </nav>
           <button className="contact-btn">Get in touch</button>
           {/* toggle theme button */}
-          <ToggleButton $theme={theme} onClick={toggleTheme}>
+          <ToggleButton $theme={theme} onClick={toggleTheme} aria-label="switch theme">
             {theme === "light" ? <AiFillMoon /> : <AiFillSun />}
           </ToggleButton>
           { // mobile nav menu close button
@@ -165,7 +165,10 @@ const HeaderStyles = styled.header`
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(255, 255, 255, 0.7);
+      background: ${({ $theme }) => ($theme === "light"
+        ? "rgba(255, 255, 255, 0.7)"
+        : "rgba(43, 54, 64, 0.7)"
+      )};
       backdrop-filter: blur(8px);
       display: flex;
       flex-direction: column;
@@ -205,6 +208,8 @@ const HeaderStyles = styled.header`
     .menu-btn {
       display: inline-block;
       position: absolute;
+      width: 40px;
+      height: 40px;
       top: 20px;
       right: 20px;
       background: transparent;
@@ -212,6 +217,11 @@ const HeaderStyles = styled.header`
       color: var(--subTxtColour);
       font-size: 2rem;
       cursor: pointer;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 `;

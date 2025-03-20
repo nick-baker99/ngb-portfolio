@@ -97,20 +97,27 @@ const Contact = () => {
               minLength: {
                 value: 10,
                 message: "Message must be at least 10 characters"
+              },
+              maxLength: {
+                value: 1000,
+                message: "Message must be less than 1,000 characters"
               }
             })}
             error={errors.message}
           />
           {/* reCAPTCHA checkbox */}
-          <ReCAPTCHA 
-            ref={captchaRef} 
-            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} 
-            onChange={(token) => {
-              setValue("recaptchaToken", token, { shouldValidate: true });
-              trigger("recaptchaToken");
-            }}
-            theme={theme}
-          />
+          <div className="recaptcha-container">
+            <ReCAPTCHA 
+              key={theme} /* this will force re-mount when theme is updated */
+              ref={captchaRef} 
+              sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} 
+              onChange={(token) => {
+                setValue("recaptchaToken", token, { shouldValidate: true });
+                trigger("recaptchaToken");
+              }}
+              theme={theme}
+            />
+          </div>
           {errors.recaptchaToken && <p className="error-msg">Please complete the reCAPTCHA</p>}
           <div className="submit-btn">
             <button type="submit" title="send message" disabled={isSubmitting} onClick={() => setFormStatus(null)}>
@@ -187,6 +194,24 @@ const ContactStyles = styled.section`
     margin: 0.5rem 0;
     color: var(--errorRed);
     font-size: 0.8rem;
+  }
+  /* reCAPTCHA responsiveness */
+  .recaptcha-container {
+    display: flex;
+    justify-content: flex-start;
+    transform-origin: left;
+
+    @media (max-width: 768px) {
+      transform: scale(0.85);
+    }
+
+    @media (max-width: 400px) {
+      transform: scale(0.75);
+    }
+
+    @media (max-width: 300px) {
+      transform: scale(0.65);
+    }
   }
 `;
 
