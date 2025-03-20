@@ -82,6 +82,11 @@ button:focus {
   box-shadow: 0 0 5px rgba(31, 117, 254, 0.7);
 }
 
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 input,
 textarea {
   color: var(--txtColour);

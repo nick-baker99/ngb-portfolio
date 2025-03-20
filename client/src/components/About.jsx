@@ -6,7 +6,7 @@ import SkillBlock from "./SkillBlock";
 
 const About = () => {
   return (
-    <AboutStyle>
+    <AboutStyle name="about-section">
       <div className="wrapper">
         <div className="profile">
           <h2 className="sub-title">About</h2>

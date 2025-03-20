@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { IoMenu, IoClose } from "react-icons/io5";
 import { AiFillMoon, AiFillSun } from "react-icons/ai";
 import { ThemeContext } from '../context/ThemeContext';
+import { Link as ScrollLink } from "react-scroll";
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -42,10 +43,10 @@ const Header = () => {
         <div className={`nav-wrapper${isMobile && navOpen ? ' open' : ''}`}>
           <nav>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
+              <li><ScrollLink to="home-section" smooth>Home</ScrollLink></li>
+              <li><ScrollLink to="about-section" smooth>About</ScrollLink></li>
               <li><a href="#">Projects</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><ScrollLink to="contact-section" smooth>Contact</ScrollLink></li>
             </ul>
           </nav>
           <button className="contact-btn">Get in touch</button>

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Welcome = () => {
   return (
-    <WelcomeStyles>
+    <WelcomeStyles name="home-section">
       <div className="wrapper">
         <div className="welcome-text">
           <h2 className="sub-title">Welcome</h2>
@@ -19,6 +19,8 @@ const Welcome = () => {
 }
 
 const WelcomeStyles = styled.section`
+  min-height: calc(100vh - var(--headerHeight));
+  display: flex;
   .wrapper {
     display: flex;
     align-items: center;
