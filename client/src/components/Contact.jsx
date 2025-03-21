@@ -6,13 +6,14 @@ import { useEffect } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 
 const Contact = () => {
   const { theme } = useContext(ThemeContext);
-
   const captchaRef = useRef();
   const [formStatus, setFormStatus] = useState(null);
+  const [intersectionRef, isVisible] = useIntersectionObserver();
 
   const { 
     register, 
@@ -56,9 +57,9 @@ const Contact = () => {
 
   return (
     <ContactStyles name="contact-section">
-      <h2 className="sub-title">Contact</h2>
-      <h1 className="title">Get in Touch</h1>
-      <div className="wrapper">
+      <div className={`wrapper scale-up ${isVisible ? "show" : ''}`} ref={intersectionRef}>
+        <h2 className="sub-title">Contact</h2>
+        <h1 className="title">Get in Touch</h1>
         <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
           <FormInput
             type="text"
@@ -138,21 +139,22 @@ const ContactStyles = styled.section`
   text-align: center;
 
   .wrapper {
-    background-color: var(--mainBg);
     max-width: 750px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  form {
+    background-color: var(--mainBg);
     margin: 2rem auto;
-    padding: 2.5rem;
+    padding: 2.5rem 7%;
     box-shadow: var(--boxShadow);
     border-radius: 8px;
+    text-align: left;
     
     @media (max-width: 768px) {
-      padding: 2rem 0;
+      padding: 2rem 5%;
     }
-  }
-  .contact-form {
-    width: 90%;
-    margin: 0 auto;
-    text-align: left;
   }
   .submit-btn button {
     background-color: var(--buttonBg);

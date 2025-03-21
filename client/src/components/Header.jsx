@@ -16,8 +16,6 @@ const Header = () => {
   );
   const [hasShadow, setHasShadow] = useState(false);
 
-  console.log(window.matchMedia("(prefers-color-scheme: dark)").matches);
-
   useEffect(() => {
     // add window resize event handler to update mobile size state
     const handleResize = () => setIsMobile(window.matchMedia('(max-width: 768px)').matches);

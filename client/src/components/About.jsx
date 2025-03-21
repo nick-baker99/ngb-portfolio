@@ -3,12 +3,16 @@ import ContactLink from "./ContactLink";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import skills from '../assets/skills.json';
 import SkillBlock from "./SkillBlock";
+import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 const About = () => {
+  const [leftIntersectionRef, leftIsVisible] = useIntersectionObserver();
+  const [rightIntersectionRef, rightIsVisible] = useIntersectionObserver(0.6);
+
   return (
     <AboutStyle name="about-section">
       <div className="wrapper">
-        <div className="profile">
+        <div className={`profile fade-left ${leftIsVisible ? "show" : ''}`} ref={leftIntersectionRef}>
           <h2 className="sub-title">About</h2>
           <h1 className="title">My Profile</h1>
           <p className="profile-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa diam, tincidunt sit amet nulla nec, luctus dapibus massa. Proin dictum, orci sed hendrerit sagittis, neque odio fringilla dolor, eu hendrerit metus enim at arcu. Nam eu sapien a nunc feugiat porttitor vel eget libero. In varius condimentum porta. Suspendisse porta massa eget diam egestas, vitae porta nunc dapibus. Integer feugiat tristique feugiat. Nullam eu orci ac libero vulputate tempus.</p>
@@ -35,7 +39,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="skills">
+        <div className={`skills fade-right ${rightIsVisible ? "show" : ''}`} ref={rightIntersectionRef}>
           <h3 className="sub-title">&nbsp;</h3>
           <h3 className="title small">My Skills</h3>
           <div className="skill-blocks">

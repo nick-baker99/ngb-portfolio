@@ -1,21 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-/*:root {
-  --mainFont: 'Inter', "Montserrat", Arial, Helvetica, sans-serif;
-  --mainBlue: #1F75FE;
-  --darkBlue: #1048a2;
-  --paleBlue: #F5F5FF;
-  --darkGrey: #333333;
-  --placeholder: #909090;
-  --mirage: #151D24;
-  --mainOrange: #E08A01;
-  --navyBlue: #2B3640;
-  --errorRed: red;
-  --successGreen: #099f09;
-  --headerHeight: 75px;
-  --pageMaxWidth: 1250px;
-} */
-
 :root {
   --mainFont: 'Inter', "Montserrat", Arial, Helvetica, sans-serif;
   --errorRed: red;
@@ -135,6 +119,90 @@ section > .wrapper {
   margin: 0 auto;
   padding: 5rem 0;
 }
+
+@keyframes scale-up {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes appear-left {
+  from {
+    opacity: 0;
+    transform: translateX(-125px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes appear-right {
+  from {
+    opacity: 0;
+    transform: translateX(125px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-left, .fade-right {
+  opacity: 0.01;
+  will-change: opacity, transform;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-left {
+  transform: translateX(-150px);
+}
+.fade-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-right {
+  transform: translateX(150px);
+}
+.fade-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.scale-up {
+  opacity: 0.01;
+  scale: 0.6;
+  will-change: opacity, transform;
+  transition: opacity 0.6s ease-out, scale 0.6s ease-out;
+}
+.scale-up.show {
+  opacity: 1;
+  scale: 1;
+}
+
+/*
+.appear {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.in-left {
+  animation: appear-left linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.in-right {
+  animation: appear-right linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+} */
 
 @media only screen and (max-width: 1200px) {
   .title {
