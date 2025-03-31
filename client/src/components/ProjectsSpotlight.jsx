@@ -62,6 +62,7 @@ const SpotlightStyles = styled.section`
     
     @media (max-width: 768px) {
       max-width: 600px;
+      grid-template-columns: 1fr;
     }
   }
 

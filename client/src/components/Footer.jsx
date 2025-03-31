@@ -1,13 +1,24 @@
 import styled from "styled-components"
 import ContactLink from "./ContactLink";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { ThemeContext } from "../context/ThemeContext";
+import { useContext } from "react";
 
 const Footer = () => {
+  const { theme } = useContext(ThemeContext);
+
+  const logoImg = theme === "dark"
+    ? "ngb_logo_alt.png"
+    : "ngb-logo.png";
+
   return (
     <FooterStyles>
       <div className="inner">
         <div className="footer-logo">
-          <img src="images/ngb_logo_alt.png" alt="NGB logo alt" />
+          <Link to="/">
+            <img src={`images/${logoImg}`} alt="NGB logo alt" />
+          </Link>
         </div>
         <div className="icon-links">
           <ContactLink
@@ -32,7 +43,7 @@ const Footer = () => {
 }
 
 const FooterStyles = styled.footer`
-  background: var(--mirage);
+  background: var(--footerBg);
   .inner {
     max-width: var(--pageMaxWidth);
     width: 90%;
@@ -41,7 +52,7 @@ const FooterStyles = styled.footer`
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    padding: 2rem;
+    padding: 1.75rem;
   }
 
   .footer-logo,
@@ -63,12 +74,12 @@ const FooterStyles = styled.footer`
     gap: 1rem;
   }
   .icon-link { 
-    color: #fff;
+    color: var(--txtColour);
     margin: 0; 
   }
 
   .copyright { 
-    color: #fff;
+    color: var(--txtColour);
     text-align: right;
   }
 

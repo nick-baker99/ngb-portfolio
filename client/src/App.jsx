@@ -1,22 +1,23 @@
 import './App.css';
-import About from './components/About';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import ProjectsSpotlight from './components/ProjectsSpotlight';
-import Welcome from './components/Welcome';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './Layout';
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import PageNotFound from './pages/PageNotFound';
+
 
 function App() {
 
   return (
-    <>
-      <Header />
-      <Welcome />
-      <About />
-      <ProjectsSpotlight />
-      <Contact />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

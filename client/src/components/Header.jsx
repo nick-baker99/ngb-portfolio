@@ -5,6 +5,7 @@ import { IoMenu, IoClose } from "react-icons/io5";
 import { AiFillMoon, AiFillSun } from "react-icons/ai";
 import { ThemeContext } from '../context/ThemeContext';
 import { Link as ScrollLink } from "react-scroll";
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -15,6 +16,8 @@ const Header = () => {
     window.matchMedia('(max-width: 768px)').matches
   );
   const [hasShadow, setHasShadow] = useState(false);
+
+  const location = useLocation();
 
   useEffect(() => {
     // add window resize event handler to update mobile size state
@@ -34,16 +37,22 @@ const Header = () => {
   return (
     <HeaderStyles $hasShadow={hasShadow} $theme={theme}>
       <div className="inner">
-        <div className="ngb-logo">
+        <Link to="/" className="ngb-logo">
           <img src={`images/${theme === "light" ? "ngb-logo.png" : "ngb_logo_alt.png"}`} alt="NGB logo" />
-        </div>
+        </Link>
         {isMobile && navOpen && <div className="nav-backdrop" onClick={() => setNavOpen(false)} />}
         <div className={`nav-wrapper${isMobile && navOpen ? ' open' : ''}`}>
           <nav>
             <ul>
-              <li><ScrollLink to="home-section" smooth>Home</ScrollLink></li>
+              <li>
+                {location.pathname === '/'
+                  // on homepage add scroll link
+                  ? <ScrollLink to="home-section" smooth>Home</ScrollLink>
+                  // any other page add route link
+                  : <Link to="/">Home</Link>}
+              </li>
               <li><ScrollLink to="about-section" smooth>About</ScrollLink></li>
-              <li><a href="#">Projects</a></li>
+              <li><Link to="/projects">Projects</Link></li>
               <li><ScrollLink to="contact-section" smooth>Contact</ScrollLink></li>
             </ul>
           </nav>
