@@ -25,11 +25,14 @@ const BlockStyles = styled.div`
   overflow: hidden;
   text-align: left;
   box-shadow: var(--boxShadow);
+  display: flex;
+  flex-direction: column;
   img {
     width: 100%;
     border-radius: 5px;
   }
   .project-info {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
