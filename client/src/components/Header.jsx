@@ -34,29 +34,41 @@ const Header = () => {
     }
   }, []);
 
+  const closeMenu = () => {
+    if (!isMobile || !navOpen) return;
+
+    setNavOpen(false);
+  }
+
   return (
     <HeaderStyles $hasShadow={hasShadow} $theme={theme}>
       <div className="inner">
         <Link to="/" className="ngb-logo">
-          <img src={`images/${theme === "light" ? "ngb-logo.png" : "ngb_logo_alt.png"}`} alt="NGB logo" />
+          <img src={`../images/${theme === "light" ? "ngb-logo.png" : "ngb_logo_alt.png"}`} alt="NGB logo" />
         </Link>
         {isMobile && navOpen && <div className="nav-backdrop" onClick={() => setNavOpen(false)} />}
         <div className={`nav-wrapper${isMobile && navOpen ? ' open' : ''}`}>
           <nav>
             <ul>
-              <li>
-                {location.pathname === '/'
-                  // on homepage add scroll link
-                  ? <ScrollLink to="home-section" smooth>Home</ScrollLink>
-                  // any other page add route link
-                  : <Link to="/">Home</Link>}
-              </li>
-              <li><ScrollLink to="about-section" smooth>About</ScrollLink></li>
-              <li><Link to="/projects">Projects</Link></li>
-              <li><ScrollLink to="contact-section" smooth>Contact</ScrollLink></li>
+              {location.pathname === '/' ? (
+                <>
+                  <li><ScrollLink to="home" smooth onClick={closeMenu}>Home</ScrollLink></li>
+                  <li><ScrollLink to="about" smooth onClick={closeMenu}>About</ScrollLink></li>
+                  <li><Link to="/projects" onClick={closeMenu}>Projects</Link></li>
+                </>
+              ) : (
+                <>
+                  <li><Link to="/?scrollto=home" onClick={closeMenu}>Home</Link></li>
+                  <li><Link to="/?scrollto=about" onClick={closeMenu}>About</Link></li>
+                  <li><Link to="/projects" onClick={closeMenu}>Projects</Link></li>
+                </>
+              )}
             </ul>
           </nav>
-          <button className="contact-btn">Get in touch</button>
+          {location.pathname === '/' 
+            ? <ScrollLink to="contact" className="contact-btn" smooth onClick={closeMenu}>Get in touch</ScrollLink>
+            : <Link to="/?scrollto=contact" className="contact-btn" onClick={closeMenu}>Get in touch</Link>
+          }
           {/* toggle theme button */}
           <ToggleButton $theme={theme} onClick={toggleTheme} aria-label="switch theme">
             {theme === "light" ? <AiFillMoon /> : <AiFillSun />}

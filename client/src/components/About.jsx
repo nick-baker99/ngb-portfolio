@@ -10,7 +10,7 @@ const About = () => {
   const [rightIntersectionRef, rightIsVisible] = useIntersectionObserver(0.6);
 
   return (
-    <AboutStyle name="about-section">
+    <AboutStyle name="about">
       <div className="wrapper">
         <div className={`profile fade-left ${leftIsVisible ? "show" : ''}`} ref={leftIntersectionRef}>
           <h2 className="sub-title">About</h2>

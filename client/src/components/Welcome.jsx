@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Welcome = () => {
   return (
-    <WelcomeStyles name="home-section">
+    <WelcomeStyles name="home">
       <div className="wrapper">
         <div className="welcome-text">
           <h2 className="sub-title">Welcome</h2>

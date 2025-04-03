@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 import ProjectBlock from "./ProjectBlock";
 
+
 const ProjectsSpotlight = () => {
   const [intersectionRef, isVisible] = useIntersectionObserver();
 
@@ -16,30 +17,54 @@ const ProjectsSpotlight = () => {
             description="A football fan social platform. Live chatrooms, football stats and a fantasy football competition."
             image="plfa.jpg"
             link="/projects/plfa"
+            icons={[
+              "react",
+              "node", 
+              "mongo",
+              "figma"
+            ]}
           />
           <ProjectBlock 
             title="WashTec Car Wash Calculator"
             description="Users enter details about their car wash equipment and the calculator works out the water usage and how much could be saved."
             image="washtec.jpg"
             link="/projects/washtec"
+            icons={[
+              "php",
+              "mysql",
+              "figma"
+            ]}
           />
           <ProjectBlock 
             title="Jokester"
             description="A random jokes generator that can deliver over 200,000 jokes. Users can provide feedback on each joke."
             image="jokester.jpg"
             link="/projects/jokester"
+            icons={[
+              "react",
+              "figma"
+            ]}
           />
           <ProjectBlock 
             title="QR Code Generator"
             description="Generates a QR code image from a chosen URL and image pixel size."
             image="qr.jpg"
             link="/projects/qr"
+            icons={[
+              "react",
+              "figma"
+            ]}
           />
           <ProjectBlock 
             title="NGB Portfolio"
             description="Portfolio website for Nick Baker - Full stack developer."
             image="portfolio.jpg"
             link="/projects/portfolio"
+            icons={[
+              "react",
+              "node",
+              "figma",
+            ]}
           />
         </div>
       </div>

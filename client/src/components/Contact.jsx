@@ -56,7 +56,7 @@ const Contact = () => {
   };
 
   return (
-    <ContactStyles name="contact-section">
+    <ContactStyles name="contact">
       <div className={`wrapper scale-up ${isVisible ? "show" : ''}`} ref={intersectionRef}>
         <h2 className="sub-title">Contact</h2>
         <h1 className="title">Get in Touch</h1>
