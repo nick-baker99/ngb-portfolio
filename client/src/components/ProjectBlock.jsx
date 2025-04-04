@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaReact, FaNodeJs, FaPhp, FaFigma  } from "react-icons/fa";
 import { SiMongodb, SiMysql } from "react-icons/si";
+import { motion } from "framer-motion";
 
 const iconsList = {
   "mongo": <SiMongodb style={{ fill: "#00684a" }} title="Mongo DB" />,
@@ -10,11 +11,23 @@ const iconsList = {
   "php": <FaPhp style={{ fill: "#4f5b93" }} title="PHP" />,
   "mysql": <SiMysql style={{ fill: "#00758f" }} title="MySQL" />,
   "figma": <FaFigma style={{ fill: "#f24e1e" }} title="Figma" />
-}
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 }
+};
 
 const ProjectBlock = ({ title, description, image, link, icons = [] }) => {
   return (
-    <BlockStyles className="block">
+    <BlockStyles 
+      className="block"
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <img 
         loading="lazy" 
         src={`images/projects/${image}`} 
@@ -36,7 +49,7 @@ const ProjectBlock = ({ title, description, image, link, icons = [] }) => {
   )
 }
 
-const BlockStyles = styled.div`
+const BlockStyles = styled(motion.div)`
   background-color: var(--secondaryBg);
   border-radius: 5px;
   overflow: hidden;
