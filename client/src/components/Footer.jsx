@@ -25,15 +25,18 @@ const Footer = () => {
             link="https://www.linkedin.com/in/nick-baker-7b958b198"
             icon={<FaLinkedin />}
             target="_blank"
+            title="Linkedin"
           />
           <ContactLink
             link="https://github.com/nick-baker99"
             icon={<FaGithub />}
             target="_blank"
+            title="GitHub"
           />
           <ContactLink
             link="mailto:ngbaker99@gmail.com"
             icon={<FaEnvelope />}
+            title="Send email"
           />
         </div>
         <p className="copyright">© 2025 Nick Baker. All rights reserved</p>
@@ -52,7 +55,7 @@ const FooterStyles = styled.footer`
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    padding: 1.75rem;
+    padding: 1.5rem;
   }
 
   .footer-logo,

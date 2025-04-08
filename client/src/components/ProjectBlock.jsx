@@ -5,12 +5,12 @@ import { SiMongodb, SiMysql } from "react-icons/si";
 import { motion } from "framer-motion";
 
 const iconsList = {
-  "mongo": <SiMongodb style={{ fill: "#00684a" }} title="Mongo DB" />,
-  "node": <FaNodeJs style={{ fill: "#3c873a" }} title="Node JS" />,
-  "react": <FaReact style={{ fill: "#61dbfb" }} title="React" />,
-  "php": <FaPhp style={{ fill: "#4f5b93" }} title="PHP" />,
-  "mysql": <SiMysql style={{ fill: "#00758f" }} title="MySQL" />,
-  "figma": <FaFigma style={{ fill: "#f24e1e" }} title="Figma" />
+  "MongoDB": <SiMongodb style={{ fill: "#00684a" }} title="Mongo DB" />,
+  "Node.js": <FaNodeJs style={{ fill: "#3c873a" }} title="Node JS" />,
+  "React": <FaReact style={{ fill: "#61dbfb" }} title="React" />,
+  "PHP": <FaPhp style={{ fill: "#4f5b93" }} title="PHP" />,
+  "MySQL": <SiMysql style={{ fill: "#00758f" }} title="MySQL" />,
+  "Figma": <FaFigma style={{ fill: "#f24e1e" }} title="Figma" />
 };
 
 const fadeInUp = {

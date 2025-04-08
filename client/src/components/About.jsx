@@ -24,17 +24,20 @@ const About = () => {
                 text="Nick Baker"
                 icon={<FaLinkedin />}
                 target="_blank"
+                title="Linkedin"
               />
               <ContactLink
                 link="https://github.com/nick-baker99"
                 text="Nick-Baker99"
                 icon={<FaGithub />}
                 target="_blank"
+                title="GitHub"
               />
               <ContactLink
                 link="mailto:ngbaker99@gmail.com"
                 text="ngbaker99@gmail.com"
                 icon={<FaEnvelope />}
+                title="Send email"
               />
             </div>
           </div>
