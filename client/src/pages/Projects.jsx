@@ -1,9 +1,16 @@
 import { useEffect } from "react"
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import ProjectBlock from "../components/ProjectBlock";
 import projectData from "../data/projects";
 
 const Projects = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   useEffect(() => {
     document.title = "Nick Baker - Projects";
   }, []);

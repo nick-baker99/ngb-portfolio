@@ -17,7 +17,7 @@ const Header = () => {
   );
   const [hasShadow, setHasShadow] = useState(false);
 
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     // add window resize event handler to update mobile size state
@@ -50,7 +50,7 @@ const Header = () => {
         <div className={`nav-wrapper${isMobile && navOpen ? ' open' : ''}`}>
           <nav>
             <ul>
-              {location.pathname === '/' ? (
+              {pathname === '/' ? (
                 <>
                   <li><ScrollLink to="home" smooth onClick={closeMenu}>Home</ScrollLink></li>
                   <li><ScrollLink to="about" smooth onClick={closeMenu}>About</ScrollLink></li>
@@ -65,7 +65,7 @@ const Header = () => {
               )}
             </ul>
           </nav>
-          {location.pathname === '/' 
+          {pathname === '/' 
             ? <ScrollLink to="contact" className="contact-btn" smooth onClick={closeMenu}>Get in touch</ScrollLink>
             : <Link to="/?scrollto=contact" className="contact-btn" onClick={closeMenu}>Get in touch</Link>
           }

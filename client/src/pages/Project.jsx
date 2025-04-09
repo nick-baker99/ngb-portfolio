@@ -101,11 +101,6 @@ const ProjectStyles = styled.div`
     background-color: var(--secondaryBg);
     border-radius: 8px; 
     font-weight: 600;
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: scale(1.05);
-    }
   }
 
   .links .buttons {
