@@ -13,7 +13,7 @@ const Footer = () => {
     : "ngb-logo.png";
 
   return (
-    <FooterStyles>
+    <FooterStyles $theme={theme}>
       <div className="inner">
         <div className="footer-logo">
           <Link to="/">
@@ -77,7 +77,7 @@ const FooterStyles = styled.footer`
     gap: 1rem;
   }
   .icon-link { 
-    color: var(--txtColour);
+    color: ${({ $theme }) => ($theme === "light" ? "#222" : "#FFF")};
     margin: 0; 
   }
 

@@ -3,13 +3,15 @@ import styled from 'styled-components';
 import PageNotFound from './PageNotFound';
 import projectData from "../data/projects";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { FaCode, FaLaptop } from "react-icons/fa6";
+import { FaCode } from "react-icons/fa6";
 import { RiComputerLine } from "react-icons/ri";
+import * as detailComponents from "../components/projectDetails/detailComponents";
 
 const Project = () => {
   const { name } = useParams();
 
   const project = projectData.find(item => item.slug === name);
+  const DetailComponent = detailComponents[project?.featureComponent];
 
   if (!project) {
     return <PageNotFound />;
@@ -30,7 +32,7 @@ const Project = () => {
         ))}
       </div>
       <div className="links">
-        <h2>Links</h2>
+        <h2 className="title">Links</h2>
         <div className="buttons">
           {project?.links?.gitHub && (
             <a href={project.links.gitHub} title="GitHub repository" target="_blank">
@@ -44,6 +46,7 @@ const Project = () => {
           )}
         </div>
       </div>
+      {DetailComponent && <DetailComponent />}
     </ProjectStyles>
   )
 }
@@ -64,6 +67,7 @@ const ProjectStyles = styled.div`
     margin-bottom: 1.5rem;
     transition: color 0.3s ease;
     width: fit-content;
+    color: var(--titleColour);
 
     &:hover {
       color: var(--subTxtColour);
@@ -72,14 +76,14 @@ const ProjectStyles = styled.div`
 
   h1.title {
     padding-bottom: 1rem;
-    border-bottom: 2px solid var(--txtColour);
+    border-bottom: 2px solid var(--titleColour);
     font-size: 3rem;
     font-weight: 600;
     margin-bottom: 1rem;
   }
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
   }
 
@@ -98,10 +102,13 @@ const ProjectStyles = styled.div`
   .tech-stack .tech {
     font-size: 1.1rem;
     padding: 10px 15px;
-    background-color: var(--secondaryBg);
+    background-color: #d9d9d9;
     border-radius: 8px; 
+    color: #222;
     font-weight: 600;
   }
+
+  .links { margin-bottom: 1rem; }
 
   .links .buttons {
     display: flex;
@@ -127,6 +134,10 @@ const ProjectStyles = styled.div`
     svg {
       font-size: 1.5rem;
     }
+  }
+
+  .project-details img {
+    margin-bottom: 1rem;
   }
 `;
 

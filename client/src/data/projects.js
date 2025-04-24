@@ -8,7 +8,8 @@ export default [
     icons: ["React", "Node.js", "MongoDB", "Figma"],
     links: {
       gitHub: "https://github.com/nick-baker99/plfa-v2",
-    }
+    },
+    featureComponent: "PlfaDetails"
   },
   {
     title: "WashTec Car Wash Calculator",
@@ -19,7 +20,8 @@ export default [
     links: {
       gitHub: "https://github.com/nick-baker99/washtec",
       demo: "https://wtukcalculator.com/"
-    }
+    },
+    featureComponent: "WashtecDetails"
   },
   {
     title: "Jokester",

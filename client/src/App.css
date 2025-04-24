@@ -59,6 +59,10 @@ body {
   flex-direction: column;
 }
 
+img {
+  max-width: 100%;
+}
+
 li {
   list-style: none;
 }
