@@ -32,7 +32,8 @@ export default [
     links: {
       gitHub: "https://github.com/nick-baker99/jokester",
       demo: "https://gleaming-belekoy-295e88.netlify.app/"
-    }
+    },
+    featureComponent: "JokesterDetails"
   },
   {
     title: "QR Code Generator",
@@ -43,7 +44,8 @@ export default [
     links: {
       gitHub: "https://github.com/nick-baker99/qr-code-generator",
       demo: "https://qr-code-generator-5abe3.web.app/"
-    }
+    },
+    featureComponent: "QrGeneratorDetails"
   },
   {
     title: "NGB Portfolio",
