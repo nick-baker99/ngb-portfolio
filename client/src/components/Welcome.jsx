@@ -32,10 +32,8 @@ const WelcomeStyles = styled.section`
   }
   .welcome-img {
     max-width: 450px;
-    border: 2px solid #666;
     img {
       width: 100%;
-      visibility: hidden;
     }
   }
   .main-title {
