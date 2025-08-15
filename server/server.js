@@ -1,4 +1,4 @@
-require("dotenv").config({ path: `${__dirname}/.env` });
+require("dotenv").config({ path: path.join(__dirname, ".env") });
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
@@ -92,10 +92,10 @@ app.post("/send", async (req, res) => {
 });
 
 // Serve React build files
-app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
