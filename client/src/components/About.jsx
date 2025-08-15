@@ -15,7 +15,7 @@ const About = () => {
         <div className={`profile fade-left ${leftIsVisible ? "show" : ''}`} ref={leftIntersectionRef}>
           <h2 className="sub-title">About</h2>
           <h1 className="title">My Profile</h1>
-          <p className="profile-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa diam, tincidunt sit amet nulla nec, luctus dapibus massa. Proin dictum, orci sed hendrerit sagittis, neque odio fringilla dolor, eu hendrerit metus enim at arcu. Nam eu sapien a nunc feugiat porttitor vel eget libero. In varius condimentum porta. Suspendisse porta massa eget diam egestas, vitae porta nunc dapibus. Integer feugiat tristique feugiat. Nullam eu orci ac libero vulputate tempus.</p>
+          <p className="profile-text">I'm a full-stack developer with a degree in Computing and four years of industry experience. I design and build web applications with an emphasis on clarity, efficiency, and maintainability. My work ranges from creating fast, accessible interfaces to developing secure, reliable back-end systems. I value straightforward solutions, thoughtful design choices, and writing code that's easy for both users and developers to work with.</p>
           <div className="contact-info">
             <h3 className="title small">Contact Details</h3>
             <div className="contact-links">

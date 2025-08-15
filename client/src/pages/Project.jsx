@@ -100,8 +100,8 @@ const ProjectStyles = styled.div`
   }
 
   .tech-stack .tech {
-    font-size: 1.1rem;
-    padding: 10px 15px;
+    font-size: 1rem;
+    padding: 8px 14px;
     background-color: #d9d9d9;
     border-radius: 8px; 
     color: #222;
