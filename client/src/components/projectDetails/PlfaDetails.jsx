@@ -2,7 +2,7 @@ const IMAGE_PATH = "../images/projects/details/plfa";
 
 const PlfaDetails = () => {
   return (
-    <div class="project-details">
+    <div className="project-details">
       <h2 className="title">Landing Page</h2>
       <p className="description"></p>
       <img src={`${IMAGE_PATH}/landing-1.jpg`} alt="landing page section 1" />

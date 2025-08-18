@@ -2,7 +2,7 @@ const IMAGE_PATH = "../images/projects/details/washtec";
 
 const WashtecDetails = () => {
   return (
-    <div class="project-details">
+    <div className="project-details">
       <h2 className="title">Landing Page</h2>
       <p className="description"></p>
       <img src={`${IMAGE_PATH}/landing.jpg`} alt="Washtec landing page" />

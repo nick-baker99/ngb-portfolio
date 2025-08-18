@@ -6,12 +6,17 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaCode } from "react-icons/fa6";
 import { RiComputerLine } from "react-icons/ri";
 import * as detailComponents from "../components/projectDetails/detailComponents";
+import { useEffect } from 'react';
 
 const Project = () => {
   const { name } = useParams();
 
   const project = projectData.find(item => item.slug === name);
   const DetailComponent = detailComponents[project?.featureComponent];
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, []);
 
   if (!project) {
     return <PageNotFound />;
@@ -97,6 +102,7 @@ const ProjectStyles = styled.div`
     gap: 1rem;
     align-items: center;
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
   }
 
   .tech-stack .tech {
@@ -139,6 +145,29 @@ const ProjectStyles = styled.div`
   .project-details img {
     margin-bottom: 1rem;
     border: 1px solid #ccc;
+  }
+
+  @media only screen and (max-width: 992px) {
+    h1.title {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+    .description {
+      font-size: 0.9rem;
+    }
+    .tech-stack .tech {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+    }
+    .links a {
+      font-size: 0.9rem;
+      padding: 6px 10px;
+    }
+    .links .buttons {
+      gap: 0.5rem;
+    }
   }
 `;
 

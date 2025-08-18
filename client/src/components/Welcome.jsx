@@ -31,7 +31,7 @@ const WelcomeStyles = styled.section`
     max-width: 650px;
   }
   .welcome-img {
-    max-width: 450px;
+    max-width: 470px;
     img {
       width: 100%;
     }
@@ -91,6 +91,21 @@ const WelcomeStyles = styled.section`
     }
     .cv-btn {
       font-size: 1.1rem;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .welcome-img {
+      max-width: 360px;
+    }
+    .main-title {
+      font-size: 2rem;
+    }
+    .intro {
+      font-size: 0.9rem;
+    }
+    .cv-btn {
+      font-size: 0.9rem;
+      padding: 10px 16px;
     }
   }
 `;
