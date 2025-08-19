@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Contact = () => {
   const { theme } = useContext(ThemeContext);
@@ -32,7 +33,7 @@ const Contact = () => {
   const onSubmit = async (data) => {
     try {
       // send reCAPTCHA token to backend to be verified
-      const response = await fetch("/api/send", {
+      const response = await fetch(`${API_URL}/send`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
