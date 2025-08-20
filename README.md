@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A personal portfolio website built with **React** (frontend) and **Node.js** (backend). This site serves as a digital showcase of your work, skills, and contact information — perfect for potential employers, clients, or collaborators.
+A personal portfolio website built with **React** (frontend) and **Node.js** (backend). This site serves as a digital showcase of my work, skills, and contact information.
 
 ## Live Demo
 
