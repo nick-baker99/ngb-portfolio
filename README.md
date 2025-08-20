@@ -4,7 +4,7 @@ A personal portfolio website built with **React** (frontend) and **Node.js** (ba
 
 ## Live Demo
 
-[Visit the Live Site](https://nickbaker.uk) <!-- Replace with your deployed site URL -->
+[Visit the Live Site](https://nickbaker.uk)
 
 ---
 
