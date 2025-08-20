@@ -1,8 +1,39 @@
-# React + Vite
+# Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built with **React** (frontend) and **Node.js** (backend). This site serves as a digital showcase of your work, skills, and contact information — perfect for potential employers, clients, or collaborators.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Visit the Live Site](https://nickbaker.uk) <!-- Replace with your deployed site URL -->
+
+---
+
+## Features
+
+### Landing Page
+
+- **Profile Section** – A brief introduction and overview of your skills and background.
+- **Latest Projects Spotlight** – Highlight of recent or featured projects.
+- **Contact Form** – Visitors can send you messages directly via the form.
+
+### Projects Page
+
+- **Project List** – A collection of all your projects with basic info and preview images.
+- **Project Details View** – Each project can be viewed individually with in-depth descriptions, tech stacks, and links.
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- React
+- React Router
+- Axios
+- CSS / SCSS
+
+### Backend
+
+- Node.js
+- Express
+- Nodemailer (for contact form handling)
