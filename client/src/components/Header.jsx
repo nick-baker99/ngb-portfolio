@@ -179,6 +179,7 @@ const HeaderStyles = styled.header`
   }
   
   @media only screen and (max-width: 768px) {
+    box-shadow: none !important;
     .nav-wrapper {
       position: fixed;
       top: 0;
