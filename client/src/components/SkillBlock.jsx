@@ -35,6 +35,7 @@ const BlockStyles = styled.div`
   border-radius: 5px;
   transition: transform 0.3s ease;
   outline: none;
+  text-align: center;
 
   &:hover,
   &:focus {
