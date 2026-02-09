@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Welcome = () => {
   return (
@@ -8,7 +9,7 @@ const Welcome = () => {
           <h2 className="sub-title">Welcome</h2>
           <h1 className="title main-title">Hi, I'm Nick</h1>
           <p className="intro">I'm a passionate full-stack web developer specializing in creating efficient and user-friendly web applications.</p>
-          <a href="/Nick-Baker-CV-2025.pdf" target="_blank" className="cv-btn">Download CV</a>
+          <a href="/Nick-Baker-CV-2026.pdf" target="_blank" className="cv-btn">Download CV</a>
         </div>
         <div className="welcome-img">
           <img loading="lazy" src="images/profile-picture.png" alt="profile image" />
