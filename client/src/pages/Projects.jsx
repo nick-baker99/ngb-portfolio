@@ -68,7 +68,7 @@ const ProjectsStyles = styled.div`
     overflow: hidden;
 
     &:hover {
-      transform: translateY(-5px) !important;
+      transform: translateY(-10px) !important;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
@@ -77,9 +77,6 @@ const ProjectsStyles = styled.div`
       width: 100%;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
-    }
-    &:hover img {
-      transform: scale(1.05);
     }
   }
 

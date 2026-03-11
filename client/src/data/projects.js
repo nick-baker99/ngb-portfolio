@@ -1,6 +1,18 @@
 // projects data array
 export default [
   {
+    title: "Velvet Whisk",
+    slug: "velvet-whisk",
+    description: "A simple React website template for a concept company, designed to showcase a vibrant and modern aesthetic.",
+    image: "velvet-whisk.jpg",
+    icons: ["React", "Tailwind CSS", "Figma"],
+    links: {
+      gitHub: "https://github.com/nick-baker99/velvet-whisk",
+      demo: "https://velvet-whisk.netlify.app/"
+    },
+    featureComponent: "VelvetWhiskDetails"
+  },
+  {
     title: "PLFA (in progress)",
     slug: "plfa",
     description: "A football fan social platform. Live chatrooms, football stats and a fantasy football competition.",

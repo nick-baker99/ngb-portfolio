@@ -95,6 +95,15 @@ const ProjectStyles = styled.div`
   .description {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
+
+    li {
+      list-style: inside;
+    }
+
+    .page-title {
+      font-weight: 700;
+      color: var(--titleColour);
+    }
   }
 
   .tech-stack {

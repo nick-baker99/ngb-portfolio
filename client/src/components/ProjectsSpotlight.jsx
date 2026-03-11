@@ -25,12 +25,12 @@ const ProjectsSpotlight = () => {
               icons={item.icons}
             />
           ))}
-          <div className="view-all-btn">
-            <Link to="/projects">
-              <FaArrowRightToBracket />
-              View All
-            </Link>
-          </div>
+        </div>
+        <div className="view-all-btn">
+          <Link to="/projects">
+            <FaArrowRightToBracket />
+            View All
+          </Link>
         </div>
       </div>
     </SpotlightStyles>
@@ -49,31 +49,32 @@ const SpotlightStyles = styled.section`
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin: 0 auto;
-
-    .view-all-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 1.2rem;
-        color: var(--titleColour);
-        font-weight: 600;
-
-        svg {
-          font-size: 2rem;
-          color: var(--buttonBg);
-        }
-      }
-    }
+    margin-bottom: 1.5rem;
     
     @media (max-width: 768px) {
       max-width: 600px;
       grid-template-columns: 1fr;
+    }
+  }
+
+  .view-all-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.2rem;
+      color: var(--titleColour);
+      font-weight: 600;
+
+      svg {
+        font-size: 2rem;
+        color: var(--buttonBg);
+      }
     }
   }
 
