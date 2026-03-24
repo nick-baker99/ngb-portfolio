@@ -20,6 +20,10 @@
     "image": "php.png"
   },
   {
+    "title": "Laravel",
+    "image": "laravel.png"
+  },
+  {
     "title": "SQL",
     "image": "database.png"
   },
