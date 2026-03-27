@@ -1,11 +1,23 @@
 // projects data array
 export default [
   {
+    title: "AnotherRep",
+    slug: "another-rep",
+    description: "A free workout generator. Pick a muscle group, what equipment you have, and your experience level.",
+    image: "another-rep.jpg",
+    icons: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase"],
+    links: {
+      gitHub: "https://github.com/nick-baker99/another-rep",
+      demo: "https://another-rep.vercel.app/"
+    },
+    featureComponent: "AnotherRepDetails"
+  },
+  {
     title: "Velvet Whisk",
     slug: "velvet-whisk",
     description: "A simple React website template for a concept company, designed to showcase a vibrant and modern aesthetic.",
     image: "velvet-whisk.jpg",
-    icons: ["React", "Tailwind CSS", "Figma"],
+    icons: ["React", "TypeScript", "Tailwind CSS"],
     links: {
       gitHub: "https://github.com/nick-baker99/velvet-whisk",
       demo: "https://velvet-whisk.netlify.app/"
